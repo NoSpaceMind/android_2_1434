@@ -11,9 +11,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        UserList userList = UserList.get();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = new UserListFragment();
+        UserList userList = UserList.get();                                 // создаём список у класса UserList через метод get
+        FragmentManager fragmentManager = getSupportFragmentManager();      // менеджер для управления активностью Fragment
+        Fragment fragment = new UserListFragment();                         // запускать фрагмент класса UserFragment
+        // V beginTransaction - помещаем эл-ты на экран в fragmentContainer, наполненый fragment'ами  // commit - для фиксации на кране
         fragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit();
     }
 }
